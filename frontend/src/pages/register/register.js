@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import styled from "styled-components"
 import login from "../../assest/login.jpg"
 import {Link,useNavigate} from "react-router-dom"
-import { Btn, Footer, Img, Input, InputRow, Label, Left, LoginDetails, LoginName, Message, Overall, Right, Wrapper } from './RegisterStyles'
+import { Btn, Footer, Img, Input, InputRow, Label, Left, LoginDetails, LoginName, Message, Overall, Right, Wrapper } from './registerStyles'
 import { Container } from '../../GlobalStyles'
 
 
