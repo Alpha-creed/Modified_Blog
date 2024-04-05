@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import {ImCross} from 'react-icons/im'
 import { useContext, useState } from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../../components/Navbar'
 import { useNavigate } from 'react-router-dom'
 import axios from "axios"
-import {URL} from '../url'
-import {UserContext} from '../context/UserContext'
+import {URL} from '../../url'
+import {UserContext} from '../../context/UserContext'
 
 const Create = () => {
     const [title,setTitle]=useState("")

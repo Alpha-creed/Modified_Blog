@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import HomePosts from '../components/HomePosts'
+import HomePosts from '../../components/HomePosts'
 
 
 
