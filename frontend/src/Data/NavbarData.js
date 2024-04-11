@@ -5,7 +5,7 @@ export const NavData=[
 		id: 'about',
 	},
 	{
-		to: '/create',
+		to: '/write',
 		text: 'Write',
 	},
 	{

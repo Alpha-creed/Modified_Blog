@@ -14,16 +14,16 @@ import {
 } from './FooterStyles';
 import { footerData, footerSocialData } from '../../Data/FooterData';
 import { Row, Section } from '../../GlobalStyles';
-import {test} from '../../assest/test.jpg'
+import logo from '../../assest/logo2.PNG'
 
-function Footer() {
+const Footer=()=> {
 	return (
 		<Section padding="4rem 0 2rem 0">
 			<FooterWrapper>
 				<FooterGrid justify="space-between">
 					<FooterColumn id="footerLogo">
 						<FooterLogo to="/">
-							<SocialIcon src={test} />
+							<SocialIcon src={logo} />
 							Baidi
 						</FooterLogo>
 						<FooterAddress>
@@ -54,7 +54,7 @@ function Footer() {
 						</FooterLinkItems>
 					))}
 				</FooterGrid>
-				<FooterRights>Delta © 2021</FooterRights>
+				<FooterRights>Baidi © 2024</FooterRights>
 			</FooterWrapper>
 		</Section>
 	);

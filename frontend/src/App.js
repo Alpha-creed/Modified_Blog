@@ -3,13 +3,18 @@ import { Route, Routes } from "react-router";
 import Login from "./pages/login/login";
 import GlobalStyle from "./GlobalStyles";
 import Register from "./pages/register/register";
+import Create from "./pages/Create/Create";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home/Home";
+import Hero from "./components/Hero/Hero";
 
 function App() {
   return (
     <div>
       <GlobalStyle/>
-      <Register/>
-      {/* <Navbar/>
+  
+      <Navbar/>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/login" element={<Login/>}/>
@@ -17,7 +22,7 @@ function App() {
         <Route exact path="/write" element={<Create/>}/>
 
       </Routes>
-       */}
+      <Footer/>
     </div>
   
   );

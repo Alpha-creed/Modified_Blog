@@ -1,11 +1,17 @@
 import React from 'react'
 import axios from 'axios'
-import HomePosts from '../../components/HomePosts'
+import Hero from '../../components/Hero/Hero'
+import HomePosts from '../../components/HomePost/HomePosts'
 
 
 
-export const Home = () => {
+const Home = () => {
   return (
-    <div><HomePosts/> </div>
+    <>
+    <Hero/>
+    <HomePosts/>
+    </>
   )
 }
+
+export default Home
