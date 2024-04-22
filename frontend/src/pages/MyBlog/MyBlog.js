@@ -4,22 +4,34 @@ import { UserContext } from '../../context/UserContext'
 import { H3, Posts } from './MyBlogStyles'
 import Loader from '../../components/Loader'
 import HomePosts from '../../components/HomePost/HomePosts'
-
+import axios from 'axios'
 
 const MyBlog = () => {
   const {search} = useLocation()
   const [posts,setPosts] = useState([])
-  const [noResults,setNoResult] = useState(false)
+  const [noResults,setNoResults] = useState(false)
   const [loader,setLoader] = useState(false)
   const {user} = useContext(UserContext)
 
   const fetchPosts=async()=>{
-    // setLoader(true)
-    // try {
+    setLoader(true)
+    try{
+      const res=await axios.get(URL+"/api/posts/user/"+user._id)
+      // console.log(res.data)
+      setPosts(res.data)
+      if(res.data.length===0){
+        setNoResults(true)
+      }
+      else{
+        setNoResults(false)
+      }
+      setLoader(false)
       
-    // } catch (error) {
-      
-    // }
+    }
+    catch(err){
+      console.log(err)
+      setLoader(true)
+    }
 
   }
 

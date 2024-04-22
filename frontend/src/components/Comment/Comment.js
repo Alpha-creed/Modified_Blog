@@ -1,14 +1,16 @@
 import React, { useContext } from 'react'
 import { Comm, CommentSection, DateWrapper, Del, DelWrapper, H3, Wrapper } from './CommentStyled'
 import { MdDelete } from "react-icons/md"
-import { URL } from "../url"
 import { UserContext } from '../../context/UserContext'
+import  axios  from 'axios'
+import { URL ,IF} from '../../url'
 
 const Comment = ({c,post}) => {
     const {user}=useContext(UserContext)
     const deleteComment=async(id)=>{
         try {
-            
+            await axios.delete(URL+"/api/comments/"+id,{withCredentials:true})
+            window.location.reload(true)
         } catch (error) {
             console.log(error);
         }

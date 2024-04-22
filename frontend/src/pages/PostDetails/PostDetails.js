@@ -3,10 +3,90 @@ import { Btn, CatWrapper, Cate, CateWrap, CommInput, CommWrap, CommWrapper, Date
 import Loader from '../../components/Loader'
 import {BiEdit} from 'react-icons/bi'
 import {MdDelete} from 'react-icons/md'
-import { IF } from '../../url'
 import Comment from '../../components/Comment/Comment'
+import { useContext, useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+import axios from 'axios'
+import { UserContext } from '../../context/UserContext'
+import { IF } from '../../url'
 
 const PostDetails = () => {
+  const postId=useParams().id
+  const [post,setPost]=useState({})
+  const {user}=useContext(UserContext)
+  const [comments,setComments]=useState([])
+  const [comment,setComment]=useState("")
+  const [loader,setLoader]=useState(false)
+  const navigate=useNavigate()
+  
+  const fetchPost=async()=>{
+    try{
+      const res= await axios.get(URL+"/api/posts/"+postId)
+      // console.log(res.data)
+      setPost(res.data)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
+  const handleDeletePost=async ()=>{
+
+    try{
+      const res=await axios.delete(URL+"/api/posts/"+postId,{withCredentials:true})
+      console.log(res.data)
+      navigate("/")
+
+    }
+    catch(err){
+      console.log(err)
+    }
+
+  }
+
+  useEffect(()=>{
+    fetchPost()
+
+  },[postId])
+
+  const fetchPostComments=async()=>{
+    setLoader(true)
+    try{
+      const res=await axios.get(URL+"/api/comments/post/"+postId)
+      setComments(res.data)
+      setLoader(false)
+
+    }
+    catch(err){
+      setLoader(true)
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{
+    fetchPostComments()
+
+  },[postId])
+
+  const postComment=async(e)=>{
+    e.preventDefault()
+    try{
+      const res=await axios.post(URL+"/api/comments/create",
+      {comment:comment,author:user.username,postId:postId,userId:user._id},
+      {withCredentials:true})
+      
+      // fetchPostComments()
+      // setComment("")
+      window.location.reload(true)
+
+    }
+    catch(err){
+         console.log(err)
+    }
+
+  }
+
+
   return (
     <div>
       {loader?<LoadWrapper><Loader/></LoadWrapper>:<NoLoader>

@@ -13,7 +13,7 @@ import {NavData} from '../../Data/NavbarData'
 
 const Navbar = () => {
   const [show,setShow]=useState(false);
-
+    const user =useState(true)
     let navigate=useNavigate()
     let location=useLocation();
 
@@ -53,27 +53,27 @@ const Navbar = () => {
                             </NavLinks>
                         </NavItems>
                     ))}  */}
+                   {user&& <NavItems>
+                        <NavLinks to="/write">Write</NavLinks>
+                    </NavItems>}
                     <NavItems>
-                        <NavLinks>Write</NavLinks>
-                    </NavItems>
-                    <NavItems>
-                        {/* to appear when not logged in */}
+                        {/* to appear when not logged in or loged in */}
                     <NavLinks>About</NavLinks>
                     </NavItems>
-                    <NavItems>
+                    {!user&&<NavItems>
                         {/* to appear when not logged in */}
                     <NavLinks>login</NavLinks>
-                    </NavItems>
-                    <NavItems>
+                    </NavItems>}
+                    {user&&<NavItems>
                     <NavLinks>Logout</NavLinks>
-                    </NavItems>
-                    <NavItems>
+                    </NavItems>}
+                    {user&&<NavItems>
                     <NavLinks>Profile</NavLinks>
-                    </NavItems>
+                    </NavItems>}
                     
-                    <NavItems>
+                    {user&&<NavItems>
                     <NavLinks>My blogs</NavLinks>
-                    </NavItems>
+                    </NavItems>}
                 </NavMenu>
             </NavbarContainer>
         </Nav>

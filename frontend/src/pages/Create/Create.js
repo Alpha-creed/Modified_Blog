@@ -68,7 +68,6 @@ const Create = () => {
     <>
     
     <Hero/>
-    
         <FormSection>     
             <Container>
         {/* <Navbar/> */}

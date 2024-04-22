@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { createContext, useEffect, useState } from 'react'
+import { URL } from '../url'
 
 export const UserContext = createContext({})
 
@@ -17,8 +18,9 @@ export function UserContextProvider({children}){
         } catch (error) {
             console.log(error)
         }
-        return (<UserContextProvider.Provider value={{user,setUser}}>
+        return (
+        <UserContext.Provider value={{user,setUser}}>
             {children}
-        </UserContextProvider.Provider>)
+        </UserContext.Provider>)
     }
 }

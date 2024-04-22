@@ -4,7 +4,7 @@ import login from "../../assest/login.jpg"
 import {Link,useNavigate} from "react-router-dom"
 import { Btn, Footer, Img, Input, InputRow, Label, Left, LoginDetails, LoginName, Message, Overall, Right, Wrapper } from './registerStyles'
 import { Container } from '../../GlobalStyles'
-
+import axios from 'axios'
 
 const Register = () => {
     const [username,setUsername] = useState("")
@@ -20,7 +20,12 @@ const Register = () => {
 
     const handleRegister=async()=>{
         try {
-            
+            const res=await axios.post(URL+"/api/auth/register",{username,email,password})
+            setUsername(res.data.username)
+            setEmail(res.data.email)
+            setPassword(res.data.password)
+            setError(false)
+            navigate("/login")
         } catch (error) {
             setError(true)
             console.log(error);

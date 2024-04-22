@@ -1,5 +1,5 @@
 import React from 'react'
-import { H1, Left, More, Right, UserName, Wrapper } from './ProfilePostStyled'
+import { H1, Img, Left, More, Right, UserName, Wrapper } from './ProfilePostStyled'
 import { IF } from '../../url'
 
 const ProfilePost = ({p}) => {
