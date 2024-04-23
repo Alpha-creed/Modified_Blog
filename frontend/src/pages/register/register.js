@@ -5,6 +5,7 @@ import {Link,useNavigate} from "react-router-dom"
 import { Btn, Footer, Img, Input, InputRow, Label, Left, LoginDetails, LoginName, Message, Overall, Right, Wrapper } from './registerStyles'
 import { Container } from '../../GlobalStyles'
 import axios from 'axios'
+import { URL } from '../../url'
 
 const Register = () => {
     const [username,setUsername] = useState("")
@@ -68,7 +69,7 @@ const Register = () => {
             <LoginName>
                 Register              
             </LoginName>
-            <LoginDetails onSubmit={handleRegister}>
+            <LoginDetails >
                 {
                     RegisterData.map((el,index)=>(
                         <InputRow key={index}>
@@ -84,7 +85,7 @@ const Register = () => {
                         </InputRow>
                     ))
                 }
-                <Btn type='submit'>Register</Btn>
+                <Btn type='submit' onClick={handleRegister}>Register</Btn>
             </LoginDetails>
             <Footer>
     Already have an account?<Link style={{textDecoration:'none',color:'black'}} to="/login"><b>Signin</b></Link>

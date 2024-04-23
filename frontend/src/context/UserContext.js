@@ -18,9 +18,10 @@ export function UserContextProvider({children}){
         } catch (error) {
             console.log(error)
         }
+    }
         return (
-        <UserContext.Provider value={{user,setUser}}>
+<UserContext.Provider value={{user,setUser}}>
             {children}
         </UserContext.Provider>)
-    }
+    
 }

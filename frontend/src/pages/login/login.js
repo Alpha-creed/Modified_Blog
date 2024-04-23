@@ -7,6 +7,7 @@ import { Container } from '../../GlobalStyles'
 import { UserContext } from '../../context/UserContext'
 import  axios  from 'axios'
 import Navbar from "../../components/Navbar/Navbar";
+import { URL } from '../../url'
 
 
 const Login = () => {
@@ -62,7 +63,7 @@ const Login = () => {
             <LoginName>
                 Login               
             </LoginName>
-            <LoginDetails onSubmit={handleLogin}>
+            <LoginDetails >
                 {
                     loginData.map((el,index)=>(
                         <InputRow key={index}>
@@ -78,7 +79,7 @@ const Login = () => {
                         </InputRow>
                     ))
                 }
-                <Btn /*onClick={handleLogin}*/ type='submit'>Login</Btn>
+                <Btn onClick={handleLogin} type='submit'>Login</Btn>
             </LoginDetails>
             <Footer>
     Do not have an account?<Link style={{textDecoration:'none',color:'black'}} to="/register"><b>Signup</b></Link>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 
 export const Nav=styled.nav`
-background: transparent;
+background: #101522;
 // background: black;
 margin-bottom: -80px;
 height: 80px;

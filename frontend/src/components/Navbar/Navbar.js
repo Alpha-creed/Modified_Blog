@@ -10,13 +10,53 @@ import { MobileIcon, Nav, NavIcon, NavItems, NavLinks, NavLogo, NavMenu, NavbarC
 import logo from '../../assest/logo2.PNG'
 import { CgMenuRight } from 'react-icons/cg';
 import {NavData} from '../../Data/NavbarData'
+import axios from 'axios'
 
 const Navbar = () => {
   const [show,setShow]=useState(false);
-    const user =useState(true)
+    const {user} =useContext(UserContext)
     let navigate=useNavigate()
     let location=useLocation();
+    const {setUser} =useContext(UserContext)
+  
+    const handleLogout=async()=>{
+      try{
+        const res=await axios.get(URL+"/api/auth/logout",{withCredentials:true})
+        // console.log(res)
+        setUser(null)
+        navigate("/login")
+    
+      }
+      catch(err){
+        console.log(err)
+      }
+    }
+    const NavLinks={
+        color:"white",
+display: "flex",
+alignItems: "center",
+textDecoration: "none",
+padding: "0.5rem 1rem",
+height: "100%",
 
+ ':hover': {
+    color: "#c8c9d8",
+    transition: "all 0.3s ease",
+},
+
+'@media screen and (max-width: 768px)': {
+    textAlign: 'center',
+    padding: '2rem',
+    width: '100%',
+    display:'table',
+
+    ':hover': {
+        color: '#4b59f7',
+        transition: 'all 0.3s ease',
+    }
+}
+
+    }
     const handleClick=()=>{
         setShow(!show)
     }
@@ -54,25 +94,25 @@ const Navbar = () => {
                         </NavItems>
                     ))}  */}
                    {user&& <NavItems>
-                        <NavLinks to="/write">Write</NavLinks>
+                        <Link style={NavLinks} to="/write">Write</Link>
                     </NavItems>}
                     <NavItems>
                         {/* to appear when not logged in or loged in */}
-                    <NavLinks>About</NavLinks>
+                    <Link style={NavLinks} to="/about">About</Link>
                     </NavItems>
                     {!user&&<NavItems>
                         {/* to appear when not logged in */}
-                    <NavLinks>login</NavLinks>
+                    <Link style={NavLinks} to="/login">login</Link>
                     </NavItems>}
                     {user&&<NavItems>
-                    <NavLinks>Logout</NavLinks>
+                    <NavLinks onClick={handleLogout}>Logout</NavLinks>
                     </NavItems>}
                     {user&&<NavItems>
-                    <NavLinks>Profile</NavLinks>
+                    <Link style={NavLinks} to={"/profile/"+user._id} >Profile</Link>
                     </NavItems>}
                     
                     {user&&<NavItems>
-                    <NavLinks>My blogs</NavLinks>
+                    <NavLinks style={NavLinks} to={"/myblogs/"+user._id}>My blogs</NavLinks>
                     </NavItems>}
                 </NavMenu>
             </NavbarContainer>

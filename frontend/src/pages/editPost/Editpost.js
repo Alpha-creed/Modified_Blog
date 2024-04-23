@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { URL } from '../../url'
 import axios  from 'axios'
 import { ImCross } from 'react-icons/im'
+import Navbar from '../../components/Navbar/Navbar'
 
 const Editpost = () => {
     const postId=useParams().id
@@ -89,7 +90,7 @@ const Editpost = () => {
 
   return (
     <>
-    
+      <Navbar/>
     <Hero/>
     
         <FormSection>     

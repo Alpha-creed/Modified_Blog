@@ -10,6 +10,7 @@ import {UserContext} from '../../context/UserContext'
 import { Add, Button, Cat, Cate, Categ, ConWrap, Content, FileInput, Form, FormButton, FormColumn, FormRow, FormSection, FormTitle, Input, Text, Wrapper } from './CreateStyles'
 import { Container, Section } from '../../GlobalStyles'
 import Hero from '../../components/Hero/Hero'
+import Navbar from '../../components/Navbar/Navbar'
 
 const Create = () => {
     const [title,setTitle]=useState("")
@@ -66,7 +67,7 @@ const Create = () => {
 
   return (
     <>
-    
+      <Navbar/>
     <Hero/>
         <FormSection>     
             <Container>

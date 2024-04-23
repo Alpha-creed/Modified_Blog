@@ -15,7 +15,7 @@ const Hero = () => {
             We provide the best platform to individuals all over the world to freely express themselves through our blog
         </HeroText>
         <ButtomWrapper>
-            <Link to="signup">
+            <Link to='/register'>
                 <Button>Get Started</Button>
             </Link>
             <HeroButton>Find More</HeroButton>

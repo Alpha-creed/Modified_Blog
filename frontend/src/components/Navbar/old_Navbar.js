@@ -11,7 +11,7 @@ import logo from '../../assest/logo2.PNG'
 import { CgMenuRight } from 'react-icons/cg';
 import {NavData} from '../../Data/NavbarData'
 
-const Navbar = () => {
+const Old_Navbar = () => {
     const [prompt,setPrompt]=useState("")
     const [menu,setMenu]=useState(false)
   const navigate=useNavigate()
@@ -55,4 +55,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Old_Navbar

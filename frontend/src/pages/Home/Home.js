@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import Hero from '../../components/Hero/Hero'
 import HomePosts from '../../components/HomePost/HomePosts'
-import { Link, useLocation } from "react-router-dom"
+import {Link, useLocation } from "react-router-dom"
 import { UserContext } from '../../context/UserContext'
 import { LoaderRole, NotAvial } from './HomeStyles'
 import Loader from '../../components/Loader'
+import { URL } from '../../url'
+import Navbar from '../../components/Navbar/Navbar'
 
 
 const Home = () => {
@@ -43,6 +45,7 @@ const Home = () => {
 
   return (
     <>
+      <Navbar/>
     {loader?<LoaderRole><Loader/></LoaderRole>:!noResults?
     posts.map((post)=>(
       <>

@@ -13,12 +13,12 @@ import PostDetails from "./pages/PostDetails/PostDetails";
 import Editpost from "./pages/editPost/Editpost";
 import Profile from "./pages/Profile/Profile";
 import { UserContextProvider } from "./context/UserContext";
+import About from "./pages/About/About";
 
 function App() {
   return (
-    <div>
+    <UserContextProvider>
       <GlobalStyle/>
-  <Navbar/>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/login" element={<Login/>}/>
@@ -28,10 +28,10 @@ function App() {
         <Route exact path="/edit/:id" element={<Editpost/>}/>
         <Route exact path="/myblogs/:id" element={<MyBlog/>}/>
         <Route exact path="/profile/:id" element={<Profile/>}/>
-        
+        <Route exact path="/about" element={<About/>}/>
       </Routes>
       <Footer/>
-    </div>
+    </UserContextProvider>
   
   );
 }

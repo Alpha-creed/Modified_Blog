@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import axios from 'axios'
 import { UserContext } from '../../context/UserContext'
 import { IF } from '../../url'
+import Navbar from '../../components/Navbar/Navbar'
 
 const PostDetails = () => {
   const postId=useParams().id
@@ -89,6 +90,7 @@ const PostDetails = () => {
 
   return (
     <div>
+        <Navbar/>
       {loader?<LoadWrapper><Loader/></LoadWrapper>:<NoLoader>
         <TitleWrapper>
           <H1>{post.title}</H1>

@@ -5,6 +5,7 @@ import { H3, Posts } from './MyBlogStyles'
 import Loader from '../../components/Loader'
 import HomePosts from '../../components/HomePost/HomePosts'
 import axios from 'axios'
+import Navbar from '../../components/Navbar/Navbar'
 
 const MyBlog = () => {
   const {search} = useLocation()
@@ -41,6 +42,7 @@ const MyBlog = () => {
 
   return (
     <div>
+        <Navbar/>
       {loader?<Posts><Loader/></Posts>:!noResults?
       posts.map((post)=>(
         <>

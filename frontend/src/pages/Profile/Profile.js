@@ -4,6 +4,7 @@ import { UserContext } from '../../context/UserContext'
 import { Btn, BtnWrapper, H1, H3, ProfInput, ProfPost, ProfileSection, ProfileWrap, ProfileWrapper } from './ProfileStyles'
 import ProfilePost from '../../components/ProfilePost/ProfilePost'
 import  axios  from 'axios'
+import Navbar from '../../components/Navbar/Navbar'
 const Profile = () => {
   const param=useParams().id
   const [username,setUsername]=useState("")
@@ -78,6 +79,7 @@ const Profile = () => {
   },[param])
   return (
     <div>
+        <Navbar/>
       <ProfileWrapper>
         <ProfPost>
           <H1>
